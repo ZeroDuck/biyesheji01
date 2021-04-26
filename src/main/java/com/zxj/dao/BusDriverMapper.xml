@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxj.dao.BusDriverMapper">
+    <insert id="addDriver" parameterType="BusDriver">
+        insert into driver (name, message)
+        values (#{name},#{message});
+    </insert>
+
+    <update id="updateDriver" parameterType="BusDriver">
+        update driver
+        set name = #{name},
+            message = #{message}
+            where id = #{id};
+    </update>
+
+    <delete id="deleteDriver" parameterType="int">
+        delete
+        from driver
+        where id = #{id};
+
+    </delete>
+
+    <select id="queryDriver" resultType="BusDriver">
+        select *
+        from driver;
+    </select>
+
+
+    <select id="queryDriverById" resultType="BusDriver" parameterType="int">
+        select *
+        from driver
+        where id = #{id};
+
+    </select>
+        
+        
+        
+        
+        
+</mapper>
